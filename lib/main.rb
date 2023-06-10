@@ -21,6 +21,7 @@ while true
   elsif input == 'l'
     todo_manager.get_all.each do |todo|
       puts todo
+      puts "Overdue: #{todo.overdue?}"
     end
   elsif input == 'd'
     title = gets.chomp.to_s

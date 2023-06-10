@@ -46,7 +46,6 @@ module Todo
     sig { params(title: String, description: String).void }
     def update_description(title, description)
       found_item = items.find { |e| e.title == title }
-
       return if found_item.nil?
 
       found_item.description = description
