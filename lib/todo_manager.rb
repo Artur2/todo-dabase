@@ -27,18 +27,13 @@ module Todo
     # Removing todo item by title
     sig { params(title: String).void }
     def remove_item(title)
-      newArray = []
-      items.each do |e|
-        newArray.push(e) if e.title != title
-      end
-
-      items = newArray
+      self.items = items.select { |i| i.title != title }
     end
 
     # Returns todo item by title
     sig { params(title: String).returns(Todo::TodoItem) }
     def get_item_by_title(title)
-      items.find { |e| e.title == title }.nil?
+      items.find { |e| e.title == title }
     end
 
     # Getting all todos

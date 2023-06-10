@@ -10,7 +10,6 @@ todo_manager = Todo::TodoManagerFactory.instance.create
 
 while true
   input = gets.chomp.to_s
-
   if input == 'q'
     break
   elsif input == 'a'
