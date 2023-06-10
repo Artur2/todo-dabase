@@ -57,6 +57,11 @@ module Todo
       found_item.description = description
     end
 
+    sig { params(title: String, due_time: Time).void }
+    def add_or_update_due_date(title, due_time)
+      raise NotImplementedError
+    end
+
     protected
 
     sig { returns(T::Array[Todo::TodoItem]) }
