@@ -6,15 +6,15 @@ require_relative 'database_todo_manager'
 require 'sorbet-runtime'
 
 module Todo
-    # Factory for todo manager
-    class TodoManagerFactory
-        extend T::Sig
-        include Singleton
+  # Factory for todo manager
+  class TodoManagerFactory
+    extend T::Sig
+    include Singleton
 
-        # Creating todo manager
-        sig { returns(Todo::TodoManager) }
-        def create
-            Todo::DatabaseTodoManager.new
-        end
+    # Creating todo manager
+    sig { returns(Todo::TodoManager) }
+    def create
+      DatabaseTodoManager.new
     end
+  end
 end

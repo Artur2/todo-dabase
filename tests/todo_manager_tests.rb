@@ -42,5 +42,13 @@ module Todo
 
       assert_equal found_item.description, 'Test description'
     end
+
+    def test_due_date_add
+      manager.add_item 'Test', 'test description'
+      manager.add_or_update_due_date 'Test', Time.now
+
+      found_item = manager.get_item_by_title 'Test'
+      assert_equal found_item.overdue?, true
+    end
   end
 end

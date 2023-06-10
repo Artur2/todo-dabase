@@ -33,5 +33,7 @@ while true
     description = gets.chomp.to_s
 
     todo_manager.update_description title, description
+  else
+    sleep 1000
   end
 end

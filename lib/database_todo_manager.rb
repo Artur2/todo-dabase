@@ -57,7 +57,6 @@ module Todo
       begin
         db.query 'SELECT * FROM todo' do |result_set|
           result_set.each do |row|
-            logger.info row
             item = TodoItem.new
             item.title = row[0]
             item.description = row[1]

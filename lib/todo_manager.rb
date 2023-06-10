@@ -53,7 +53,10 @@ module Todo
 
     sig { params(title: String, due_time: Time).void }
     def add_or_update_due_date(title, due_time)
-      raise NotImplementedError
+      todo_item = get_item_by_title title
+      return unless todo_item != nil?
+
+      todo_item.due_date = due_time
     end
 
     protected
