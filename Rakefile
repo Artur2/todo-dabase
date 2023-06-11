@@ -5,15 +5,18 @@ task default: %w[test]
 task default: %w[lint test]
 
 RuboCop::RakeTask.new(:lint) do |task|
-    task.patterns = ['lib/**/*.rb', 'tests/**/*.rb']
-    task.fail_on_error = false
+  task.patterns = ['lib/**/*.rb', 'tests/**/*.rb']
+  task.fail_on_error = false
 end
 
 task :main do
-    ruby 'lib/main.rb'
+  ruby 'lib/main.rb'
 end
 
-task :test do
-    ruby 'tests/todo_item_tests.rb'
-    ruby 'tests/todo_manager_tests.rb'
+task :tests do
+  tests = Dir.glob('tests/*.rb').select { |e| File.file? e }
+  puts tests
+  tests.each do |e|
+    ruby e
+  end
 end
